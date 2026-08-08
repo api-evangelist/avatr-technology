@@ -1,18 +1,61 @@
 aid: avatr-technology
 name: Avatr Technology
-description: 'Avatr Technology is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  AVATR Technology (Chongqing) Co., Ltd. (阿维塔科技) is a Chinese premium intelligent
+  electric-vehicle manufacturer headquartered in Chongqing, founded in 2018 as a
+  joint venture in which Changan Automobile and CATL are the two largest
+  shareholders and Huawei supplies the smart-cockpit and advanced driver-assistance
+  stack. Its vehicles — the AVATR 11 and 12, the volume 06 and 07 (battery-electric
+  and range-extended), and the limited 011 and 012 — are built on the jointly
+  developed CHN smart-EV platform, a six-layer architecture spanning the mechanical,
+  energy, electronic/electrical architecture, vehicle operating system, vehicle
+  function application and cloud big-data layers. AVATR produced 73,606 vehicles in
+  2024 and sells through mainland China plus overseas markets including Hong Kong,
+  Singapore, Thailand, Sri Lanka, the UAE and Qatar, with design and engineering
+  offices in Shanghai and Munich. AVATR is a vehicle manufacturer, not a software
+  vendor: www.avatr.com is a marketing and configurator site with no developer
+  portal, no public API, no SDK and no machine-readable specification. The only
+  live agent surface anywhere on an AVATR hostname is platform-provided — the
+  official Hong Kong site runs on Wix and exposes the Wix Site MCP endpoint plus a
+  Wix-generated llms.txt over its public marketing content.
+image: https://static.avatr.com/pc-website/favicon.ico
 url: https://raw.githubusercontent.com/api-evangelist/avatr-technology/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pipeline
 specificationVersion: '0.20'
 created: '2026-08-06'
 modified: '2026-08-06'
 tags:
 - Company
-apis: []
+- Automotive
+- Electric Vehicles
+- Smart Cockpit
+- Autonomous Driving
+- Manufacturing
+- China
+- Consumer
+apis:
+- aid: avatr-technology:avatr-hong-kong-site-mcp
+  name: AVATR Hong Kong site MCP
+  description: >-
+    Wix Site MCP endpoint served from the official AVATR Hong Kong site. Answers an
+    anonymous JSON-RPC tools/list with 9 tools over the public marketing site
+    (business details, in-site search, plus Wix documentation and execution tools).
+    Platform-provided by Wix, not an AVATR product, vehicle or telematics API.
+  humanURL: https://www.avatr.hk/
+  baseURL: https://www.avatr.hk/_api/mcp
+  tags:
+  - MCP
+  - Website
+  properties:
+  - type: MCPServer
+    url: mcp/avatr-technology-mcp.yml
+  - type: LLMsTxt
+    url: llms/avatr-technology-hk-llms.txt
+  - type: Documentation
+    url: https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +63,79 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://www.avatr.com/en
+- type: LLMsTxt
+  url: llms/avatr-technology-llms.txt
+- type: MCPServer
+  url: mcp/avatr-technology-mcp.yml
+- type: DomainSecurity
+  url: security/avatr-technology-domain-security.yml
+- type: About
+  url: https://www.avatr.com/en/about
+- type: Product
+  name: AVATR 11
+  url: https://www.avatr.com/en/11
+- type: Product
+  name: AVATR 12
+  url: https://www.avatr.com/en/12
+- type: Product
+  name: AVATR 06
+  url: https://www.avatr.com/en/06
+- type: Product
+  name: AVATR 07
+  url: https://www.avatr.com/en/07
+- type: Product
+  name: CHN smart-EV platform
+  url: https://www.avatr.com/en/chn
+- type: Design
+  url: https://www.avatr.com/en/design
+- type: Newsroom
+  url: https://www.avatr.com/newscenter
+- type: Contact
+  url: mailto:contactus@avatr.com
+- type: PrivacyPolicy
+  url: https://www.avatr.com/protocol?type=10181001
+- type: TermsOfService
+  url: https://www.avatr.com/protocol?type=10181009
+- type: MobileApp
+  url: https://www.avatr.com/en/download
+- type: LinkedIn
+  url: https://www.linkedin.com/company/%E9%98%BF%E7%BB%B4%E5%A1%94%E7%A7%91%E6%8A%80/
+- type: Instagram
+  url: https://instagram.com/avatr_design
+- type: SecondaryMarket
+  name: Hiive
   url: https://www.hiive.com/securities/avatr-technology-stock
+x-enrichment:
+  date: '2026-08-06'
+  status: enriched
+  artifacts_added: 5
+  pass: local-v1
+x-coverage:
+  state: covered
+  detail: >-
+    AVATR is a vehicle manufacturer with no developer program: www.avatr.com returns a
+    real HTTP 404 for /developers, /api, /docs, /openapi.json, /llms.txt and every
+    /.well-known/* path, and no api./docs./developer./open. subdomain resolves. The one
+    live agent surface — the Wix Site MCP endpoint and llms.txt on the official Hong Kong
+    site www.avatr.hk — was found, probed and captured; it is platform-provided by Wix,
+    not built by AVATR.
+  evidence:
+  - url: https://www.avatr.hk/_api/mcp
+    status: 200
+  - url: https://www.avatr.hk/llms.txt
+    status: 200
+  - url: https://www.avatr.com/llms.txt
+    status: 404
+  - url: https://www.avatr.com/openapi.json
+    status: 404
+  - url: https://www.avatr.com/developers
+    status: 404
+  - url: https://www.avatr.com/.well-known/agent-card.json
+    status: 404
+  checked: '2026-08-06'
+  notes:
+  - >-
+    Regional sites www.avatr.co.th and www.avatr.lk answer HTTP 200 for /openapi.json and
+    /llms.txt, but a control path (/kin-lane-control-9z) returns the identical SPA shell —
+    these are soft-404s and were not credited.
