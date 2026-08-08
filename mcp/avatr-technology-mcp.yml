@@ -1,0 +1,111 @@
+generated: '2026-08-06'
+method: searched
+status: published
+source: https://www.avatr.hk/_api/mcp
+name: Avatr Hong Kong site MCP server
+summary: >-
+  The AVATR Hong Kong site (www.avatr.hk) is built on Wix and exposes the Wix
+  Site MCP endpoint at https://www.avatr.hk/_api/mcp. It answers an anonymous
+  JSON-RPC tools/list with 9 tools. This is a PLATFORM-PROVIDED surface that Wix
+  turns on for the site, not an AVATR product or vehicle API — it reads and acts
+  on the public marketing site only. AVATR's own corporate domain (www.avatr.com)
+  publishes no MCP server, no OpenAPI, and no developer program.
+server:
+  url: https://www.avatr.hk/_api/mcp
+  transport: streamable-http
+  protocol: json-rpc-2.0
+  platform: Wix Site MCP
+  platform_docs: https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp
+  first_party: false
+  first_party_note: >-
+    Served from an AVATR-controlled hostname (www.avatr.hk, the official Hong Kong
+    site linked from the www.avatr.com footer), but the tool surface is generated
+    by the Wix platform and is identical across Wix-hosted sites. It is not
+    authored by AVATR Technology (Chongqing) Co., Ltd.
+  authentication:
+    required: false
+    note: >-
+      tools/list answered anonymously (HTTP 200). Acting on the visitor's behalf
+      requires a visitor token minted by the GenerateVisitorToken tool; there is no
+      OAuth authorization-server or protected-resource metadata — both
+      /.well-known/oauth-authorization-server and /.well-known/oauth-protected-resource
+      return HTTP 400 on this host.
+discovery:
+  llms_txt: https://www.avatr.hk/llms.txt
+  llms_txt_status: 200
+  llms_txt_file: llms/avatr-technology-hk-llms.txt
+tool_count: 9
+tools_file: mcp/avatr-technology-hk-mcp-tools.json
+tools:
+- name: GetBusinessDetails
+  category: site
+  description: Business and site details for the AVATR HK site — timezone, email, phone, address.
+  parameters: []
+- name: SearchInSite
+  category: site
+  description: Full-text search across the public AVATR HK site content.
+  parameters:
+  - searchTerm
+- name: SearchSiteApiDocs
+  category: docs
+  description: Returns the API documentation for the Wix business solutions installed on this site.
+  parameters:
+  - searchTerm
+- name: GenerateVisitorToken
+  category: auth
+  description: Creates a visitor session and returns a visitor access token; prerequisite for CallWixSiteAPI.
+  parameters: []
+- name: CallWixSiteAPI
+  category: action
+  description: Calls a Wix REST API method on the site on a visitor's behalf.
+  parameters:
+  - visitorToken
+  - url
+  - method
+  - body
+- name: ExecuteWixAPI
+  category: action
+  description: Runs JavaScript against the Wix REST API on the site.
+  parameters:
+  - code
+  - reason
+  - hasMutations
+  - sourceDocUrls
+  - visitorToken
+- name: BrowseWixRESTDocsMenu
+  category: docs
+  description: Browses the Wix REST API documentation menu hierarchy.
+  parameters:
+  - menuUrl
+  - reason
+- name: ReadFullDocsArticle
+  category: docs
+  description: Fetches a full article from the Wix developer documentation portal.
+  parameters:
+  - articleUrl
+- name: ReadFullDocsMethodSchema
+  category: docs
+  description: Fetches the full request/response schema for a Wix API method.
+  parameters:
+  - articleUrl
+  - reason
+observations:
+- >-
+  6 of the 9 tools (ReadFullDocsArticle, ReadFullDocsMethodSchema,
+  BrowseWixRESTDocsMenu, SearchSiteApiDocs, CallWixSiteAPI, ExecuteWixAPI) are
+  Wix-platform documentation and execution tools, not AVATR-domain capabilities.
+  Only GetBusinessDetails and SearchInSite return AVATR content.
+- >-
+  Several tool descriptions embed <agent-mandatory-instructions> blocks written by
+  the Wix platform that instruct a connecting agent how to behave. Recorded here as
+  observed; the verbatim bodies are in mcp/avatr-technology-hk-mcp-tools.json.
+- >-
+  No ToolCrosswalk is emitted: there is no AVATR OpenAPI to bind these tools to,
+  and the operations they reach are Wix's, not AVATR's.
+x-evidence:
+  fetched: '2026-08-06'
+  url: https://www.avatr.hk/_api/mcp
+  method: POST
+  request: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+  http_status: 200
+  content_type: application/json
