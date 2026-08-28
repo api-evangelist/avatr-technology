@@ -18,6 +18,17 @@ description: >-
   live agent surface anywhere on an AVATR hostname is platform-provided — the
   official Hong Kong site runs on Wix and exposes the Wix Site MCP endpoint plus a
   Wix-generated llms.txt over its public marketing content.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://static.avatr.com/pc-website/favicon.ico
 url: https://raw.githubusercontent.com/api-evangelist/avatr-technology/refs/heads/main/apis.yml
 x-type: company
