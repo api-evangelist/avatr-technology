@@ -71,6 +71,9 @@ apis:
   baseURL: https://www.avatr.hk/_api/mcp
   tags:
   - MCP
+  - Websites
+  tags_raw:
+  - MCP
   - Website
   properties:
   - type: MCPServer
