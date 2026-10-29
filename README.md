@@ -64,5 +64,91 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Avatr Technology is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.hiive.com/securities/avatr-technology-stock
+AVATR Technology (Chongqing) Co., Ltd. (阿维塔科技) is a Chinese premium intelligent electric-vehicle manufacturer headquartered in Chongqing, founded in 2018 as a joint venture in which Changan Automobile and CATL are the two largest shareholders and Huawei supplies the smart-cockpit and advanced driver-assistance stack. Its vehicles — the AVATR 11 and 12, the volume 06 and 07 (battery-electric and range-extended), and the limited 011 and 012 — are built on the jointly developed CHN smart-EV platform, a six-layer architecture spanning the mechanical, energy, electronic/electrical architecture, vehicle operating system, vehicle function application and cloud big-data layers. AVATR produced 73,606 vehicles in 2024 and sells through mainland China plus overseas markets including Hong Kong, Singapore, Thailand, Sri Lanka, the UAE and Qatar, with design and engineering offices in Shanghai and Munich. AVATR is a vehicle manufacturer, not a software vendor: www.avatr.com is a marketing and configurator site with no developer portal, no public API, no SDK and no machine-readable specification. The only live agent surface anywhere on an AVATR hostname is platform-provided — the official Hong Kong site runs on Wix and exposes the Wix Site MCP endpoint plus a Wix-generated llms.txt over its public marketing content.
+
+**Areas:** Company · Automotive · Electric Vehicles · Smart Cockpit · Autonomous Driving · Manufacturing · China · Consumer
+
+## Avatr Technology on APIs.io
+
+Everything profiled for Avatr Technology is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/avatr-technology/](https://apis.io/providers/avatr-technology/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [AVATR Hong Kong site MCP](https://apis.io/apis/avatr-technology/avatr-hong-kong-site-mcp/) — Wix Site MCP endpoint served from the official AVATR Hong Kong site. Answers an anonymous JSON-RPC tools/list with 9 tools over the public marketing site…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Avatr Hong Kong site MCP server](https://apis.io/servers/avatr-technology/avatr-hong-kong-site-mcp-server/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Avatr Technology Domain Security](https://apis.io/security/avatr-technology/avatr-technology-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.avatr.com/en)
+- [Terms of service](https://www.avatr.com/protocol?type=10181009)
+- [Privacy policy](https://www.avatr.com/protocol?type=10181001)
+
+## API Evangelist rating
+
+**Kin Score 13.5** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.8 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 21.1 |
+
+**Agent readiness 2.2** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/avatr-technology/](https://apis.io/providers/avatr-technology/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Avatr Technology: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/avatr-technology/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
